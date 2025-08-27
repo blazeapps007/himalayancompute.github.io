@@ -10,13 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Calm Neutrals -->
-    <!-- Application Structure Plan: The SPA is designed as a top-down narrative dashboard to logically guide a user through the business case. It begins with a high-impact hero section with key metrics (The Hook). It then flows into thematic sections: 1. The Global Opportunity (market context), 2. Nepal's Unbeatable Edge (the core value proposition), 3. The Financial Case (the proof, with interactive TCO), 4. The Service Offering (what we sell), and 5. The Strategic Roadmap (how we'll execute). This structure was chosen over a direct report mirror because it builds a compelling story, moving from the "why" to the "how," which is ideal for stakeholder buy-in and user understanding. -->
+    <!-- Application Structure Plan: The SPA is designed as a top-down narrative dashboard. It begins with a high-impact hero section with key metrics (The Hook). It then flows into thematic sections: 1. The Global Opportunity (market context), 2. Nepal's Unbeatable Edge (the core value proposition), 3. What is a GPU Stack? (simple technical explanation), 4. The Financial Case (the proof, with interactive TCO), 5. The Service Offering (what we sell), and 6. The Strategic Roadmap (how we'll execute). This structure was chosen to build a compelling story, moving from the "why" to the "what" and then the "how," which is ideal for stakeholder buy-in and user understanding. -->
     <!-- Visualization & Content Choices: 
         - Key Metrics (Hero): Goal: Inform. Method: Large Number Cards (HTML/Tailwind). Interaction: Hover effect. Justification: Provides an immediate, scannable summary of the most compelling financial outcomes. NO SVG.
-        - Electricity Cost Comparison: Goal: Compare. Method: Bar Chart (Chart.js/Canvas). Interaction: Hover for tooltips. Justification: The most effective way to visually demonstrate the foundational cost advantage against key global competitors. NO SVG.
-        - 5-Year TCO Comparison: Goal: Compare/Analyze. Method: Grouped Bar Chart (Chart.js/Canvas). Interaction: Hover for tooltips. Justification: This is the core financial proof. A grouped bar chart clearly compares Nepal vs. USA on both CapEx and OpEx, showing where the savings come from. NO SVG.
-        - GPU Use Cases: Goal: Organize. Method: Styled Cards in a Grid (HTML/Tailwind). Interaction: None. Justification: A clean, clear way to present the target markets and services. NO SVG.
-        - Phased Roadmap: Goal: Organize/Show Process. Method: HTML/Tailwind Flow Diagram. Interaction: None. Justification: Clearly visualizes the strategic growth plan in a simple, linear flow. NO SVG, NO MERMAID JS.
+        - Electricity Cost Comparison: Goal: Compare. Method: Bar Chart (Chart.js/Canvas). Interaction: Hover for tooltips. Justification: The most effective way to visually demonstrate the foundational cost advantage. NO SVG.
+        - GPU Stack Explanation: Goal: Inform/Organize. Method: HTML/Tailwind with real images. Justification: Uses a simple analogy and visuals to explain the core technology to a non-technical audience. NO SVG.
+        - 5-Year TCO Comparison: Goal: Compare/Analyze. Method: Grouped Bar Chart (Chart.js/Canvas). Interaction: Hover for tooltips. Justification: This is the core financial proof, clearly comparing Nepal vs. USA on both CapEx and OpEx. NO SVG.
+        - Phased Roadmap: Goal: Organize/Show Process. Method: HTML/Tailwind Flow Diagram. Justification: Clearly visualizes the strategic growth plan. NO SVG, NO MERMAID JS.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -73,6 +73,13 @@
             font-size: 2.5rem;
             line-height: 1;
         }
+        .real-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -85,6 +92,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#opportunity" class="text-gray-600 nav-link font-medium">Opportunity</a>
                 <a href="#advantage" class="text-gray-600 nav-link font-medium">Advantage</a>
+                <a href="#what-is-a-gpu" class="text-gray-600 nav-link font-medium">What is a GPU?</a>
                 <a href="#financials" class="text-gray-600 nav-link font-medium">Financials</a>
                 <a href="#services" class="text-gray-600 nav-link font-medium">Services</a>
                 <a href="#roadmap" class="text-gray-600 nav-link font-medium">Roadmap</a>
@@ -98,6 +106,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <a href="#opportunity" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Opportunity</a>
             <a href="#advantage" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Advantage</a>
+            <a href="#what-is-a-gpu" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">What is a GPU?</a>
             <a href="#financials" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Financials</a>
             <a href="#services" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Services</a>
             <a href="#roadmap" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Roadmap</a>
@@ -176,7 +185,60 @@
             </div>
         </section>
 
-        <section id="financials" class="py-16 md:py-24 px-6 text-center">
+        <section id="what-is-a-gpu" class="py-16 md:py-24 px-6 text-center">
+            <div class="container mx-auto">
+                <h2 class="section-title">What is a GPU Stack? A Simple Guide</h2>
+                <p class="section-subtitle">To understand our business, it helps to know what we're building. Think of it like an orchestra. A regular computer is like a single, talented musician. But to solve the biggest problems, you need a full orchestra of specialists working together. That's what a GPU data center is.</p>
+                
+                <div class="space-y-12 text-left max-w-4xl mx-auto">
+                    <!-- Step 1: The GPU -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">1. The GPU: The Specialist Musician</h3>
+                            <p class="text-gray-600">A GPU (Graphics Processing Unit) is a special kind of computer chip. Originally made for video games, they are amazing at doing thousands of simple math problems all at once. This ability, called **parallel processing**, is exactly what's needed for Artificial Intelligence. Each GPU is like a brilliant specialist musician.</p>
+                        </div>
+                        <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ada/rtx-4090/geforce-rtx-4090-product-gallery-full-length-f.png" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=A+Single+GPU';" 
+                             alt="A single NVIDIA GeForce RTX 4090 GPU" class="real-image">
+                    </div>
+
+                    <!-- Step 2: The Server -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                         <img src="https://i.ytimg.com/vi/J8BqJd5-dFk/maxresdefault.jpg" 
+                              onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Server+with+GPUs';"
+                              alt="A server rig with multiple GPUs connected by water cooling tubes" class="real-image order-last md:order-first">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">2. The Server: The Orchestra Section</h3>
+                            <p class="text-gray-600">You group musicians into sections (like violins or cellos). A **server** is a powerful computer that houses a group of GPUs, typically 8 of them. It provides power and a high-speed connection to data. Because these GPUs get very hot, our servers use a special **water-cooling system**—like a high-tech plumbing system—to keep them running perfectly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: The Rack -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">3. The Rack: The Stage</h3>
+                            <p class="text-gray-600">Orchestra sections perform on a stage. A **rack** is a tall metal frame that holds many servers stacked vertically. This allows us to pack an enormous amount of computing power into a small physical space, all connected with networking, power, and the main pipes for our water-cooling system.</p>
+                        </div>
+                        <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/2215/innergigabyte/img/img_22.png" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=A+Full+Rack+of+Servers';"
+                             alt="A full rack of GPU servers" class="real-image">
+                    </div>
+
+                    <!-- Step 4: The Cluster -->
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="https://www.anl.gov/sites/www/files/styles/scale_1440/public/2023-05/Polaris-datacom-facility-2400px-2.jpg?itok=G1Wb2fCj" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Data+Center+Aisle';"
+                             alt="A data center aisle representing a GPU cluster" class="real-image order-last md:order-first">
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">4. The Cluster: The Full Orchestra</h3>
+                            <p class="text-gray-600">Finally, you bring all the sections together to form the full orchestra. A **GPU cluster** is a room filled with many racks, all interconnected with ultra-fast networking. This allows thousands of GPUs to work together on a single, massive problem. **Our business is building these "orchestras" in Nepal and renting out their combined power.**</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="financials" class="py-16 md:py-24 px-6 bg-white text-center">
             <div class="container mx-auto">
                 <h2 class="section-title">The Financial Case</h2>
                 <p class="section-subtitle">Our financial model is built for rapid, profitable growth. By starting with a lean, scalable 1,000-GPU pilot project, we minimize initial CapEx and maximize returns. This section breaks down the Total Cost of Ownership (TCO) and revenue potential.</p>
@@ -191,7 +253,7 @@
             </div>
         </section>
 
-        <section id="services" class="py-16 md:py-24 px-6 bg-white text-center">
+        <section id="services" class="py-16 md:py-24 px-6 text-center">
             <div class="container mx-auto">
                 <h2 class="section-title">Our Service Offering</h2>
                 <p class="section-subtitle">We provide raw, high-performance GPU power for the world's most demanding computational tasks. Our hardware strategy is designed to meet a diverse spectrum of needs, from AI startups to large-scale scientific research.</p>
@@ -215,7 +277,7 @@
             </div>
         </section>
 
-        <section id="roadmap" class="py-16 md:py-24 px-6 text-center">
+        <section id="roadmap" class="py-16 md:py-24 px-6 bg-white text-center">
             <div class="container mx-auto">
                 <h2 class="section-title">A Roadmap for Rapid Dominance</h2>
                 <p class="section-subtitle">Our strategy is designed for accelerated growth and market capture. We will use a phased deployment of modular, containerized data centers to scale efficiently and meet the infinite demand for our services.</p>
